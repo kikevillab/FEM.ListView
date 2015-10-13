@@ -1,12 +1,12 @@
 package es.upm.miw.listviewlayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,9 +34,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String[] datos;
-                datos = getResources().getStringArray(R.array.datos);
+                Intent intent = new Intent(MainActivity.this, MostrarItemActivity.class);
 
-                Toast.makeText(getApplicationContext(), datos[position], Toast.LENGTH_SHORT).show();
+                // Mostrar en otra actividad
+                datos = getResources().getStringArray(R.array.datos);
+                intent.putExtra("TEXTO", datos[position]);
+                startActivity(intent);
+
+                // Toast.makeText(getApplicationContext(), datos[position], Toast.LENGTH_SHORT).show();
             }
         });
 
