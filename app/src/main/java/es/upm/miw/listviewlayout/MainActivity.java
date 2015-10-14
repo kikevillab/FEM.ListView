@@ -10,15 +10,13 @@ import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ListView listView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // TO DO Identificar el recurso en la vista
-        listView = (ListView) findViewById(R.id.listView);
+        ListView listView = (ListView) findViewById(R.id.listView);
 
         // TO DO crear adaptador a partir del recurso (ArrayAdapter.createFromResource)
         ArrayAdapter adaptador = ArrayAdapter.createFromResource(
