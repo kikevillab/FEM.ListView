@@ -9,7 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+public class ActividadPrincipal extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +33,21 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Recupero el texto de la opción elegida
                 String opcionElegida = listView.getItemAtPosition(position).toString();
 
                 Log.i("Opción elegida", opcionElegida);
 //                Toast.makeText(getApplicationContext(), opcionElegida, Toast.LENGTH_SHORT).show();
-                Intent nuevoIntent = new Intent(MainActivity.this, MuestraElementoActivity.class);
+
+                Intent nuevoIntent = new Intent(ActividadPrincipal.this, MuestraDetalle.class);
+
+//                nuevoIntent.putExtra("MI_OPCION", opcionElegida);
+
                 Bundle bundle = new Bundle();
                 bundle.putString("OPCION_ELEGIDA", opcionElegida);
                 bundle.putInt("NUMERO_OPCION", position);
                 nuevoIntent.putExtras(bundle);
+
                 startActivity(nuevoIntent);
             }
         });

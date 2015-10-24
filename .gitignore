@@ -1,9 +1,8 @@
 /.gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
+/.idea/
 /.navigation/
 /build
 /app/build/
 /captures
-.idea/dictionaries/Javier_Gil.xml
+*.iml
